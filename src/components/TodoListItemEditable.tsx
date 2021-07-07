@@ -26,7 +26,7 @@ export const TodoListItemEditable: React.FC<Props> = ({ todo, updateTodo, toggle
                 }}
                 onClick={() => {
                     if (task.length == 0) {
-                        window.alert('Task can not be empty');
+                        window.alert('Task cannot be empty');
                         return;
                     }
                     updateTodo({
