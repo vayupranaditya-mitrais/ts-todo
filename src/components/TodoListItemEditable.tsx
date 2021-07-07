@@ -19,23 +19,33 @@ export const TodoListItemEditable: React.FC<Props> = ({ todo, updateTodo, toggle
                 value={task}
                 onChange={(elem) => setTask(elem.target.value)}
             />
-            <button onClick={() => {
-                if (task.length == 0) {
-                    window.alert('Task can not be empty');
-                    return;
-                }
-
-                updateTodo({
-                    ...todo,
-                    task: task
-                });
-                toggleEditing();
-            }}>
+            <button
+                style={{
+                    marginLeft: "10px",
+                    backgroundColor: "lawngreen"
+                }}
+                onClick={() => {
+                    if (task.length == 0) {
+                        window.alert('Task can not be empty');
+                        return;
+                    }
+                    updateTodo({
+                        ...todo,
+                        task: task
+                    });
+                    toggleEditing();
+                }}
+            >
                 <FontAwesomeIcon icon={ faCheck } />
             </button>
-            <button onClick={() => {
-                toggleEditing();
-            }}>
+            <button
+                style={{
+                    backgroundColor: "tomato"
+                }}
+                onClick={() => {
+                    toggleEditing();
+                }}
+            >
                 <FontAwesomeIcon icon={ faTimes } />
             </button>
         </>

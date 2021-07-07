@@ -33,10 +33,21 @@ export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo, updateTodo, re
         if (!todo.isCompleted) {
             return (
                 <>
-                    <button onClick={() => toggleEditing()}>
+                    <button
+                        style={{
+                            marginLeft: "10px",
+                            backgroundColor: "orange"
+                        }}
+                        onClick={() => toggleEditing()}
+                    >
                         <FontAwesomeIcon icon={ faPen } />
                     </button>
-                    <button onClick={() => removeTodo(todo)}>
+                    <button
+                        style={{
+                            backgroundColor: "tomato"
+                        }}
+                        onClick={() => removeTodo(todo)}
+                    >
                         <FontAwesomeIcon icon={ faTrash } />
                     </button>
                 </>
@@ -44,7 +55,13 @@ export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo, updateTodo, re
         }
         return (
             <>
-                <button onClick={() => removeTodo(todo)}>
+                <button
+                    style={{
+                        marginLeft: "10px",
+                        backgroundColor: "tomato"
+                    }}
+                    onClick={() => removeTodo(todo)}
+                >
                     <FontAwesomeIcon icon={ faTrash } />
                 </button>
             </>
