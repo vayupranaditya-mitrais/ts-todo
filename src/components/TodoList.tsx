@@ -5,9 +5,10 @@ interface Props {
     todos: Todo[];
     toggleTodo: ToggleTodo;
     updateTodo: UpdateTodo;
+    removeTodo: RemoveTodo;
 }
 
-export const TodoList: React.FC<Props> = ({ todos, toggleTodo, updateTodo }) => {
+export const TodoList: React.FC<Props> = ({ todos, toggleTodo, updateTodo, removeTodo }) => {
     return (
         <ul>
             {todos.map(todo => (
@@ -16,6 +17,7 @@ export const TodoList: React.FC<Props> = ({ todos, toggleTodo, updateTodo }) => 
                         todo={todo}
                         toggleTodo={toggleTodo}
                         updateTodo={updateTodo}
+                        removeTodo={removeTodo}
                     />
                 </div>
             ))}

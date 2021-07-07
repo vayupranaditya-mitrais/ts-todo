@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { TodoListItemEditable } from './TodoListItemEditable';
 import { TodoListItemNonEditable } from './TodoListItemNonEditable';
 
@@ -9,9 +9,10 @@ interface Props {
     todo: Todo;
     toggleTodo: ToggleTodo;
     updateTodo: UpdateTodo;
+    removeTodo: RemoveTodo;
 }
 
-export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo, updateTodo }) => {
+export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo, updateTodo, removeTodo }) => {
     const [isEditing, setIsEditing] = useState(false);
 
     const child = (todo: Todo, toggleTodo: ToggleTodo): ReactElement => isEditing ? (
@@ -35,11 +36,17 @@ export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo, updateTodo }) 
                     <button onClick={() => toggleEditing()}>
                         <FontAwesomeIcon icon={ faPen } />
                     </button>
+                    <button onClick={() => removeTodo(todo)}>
+                        <FontAwesomeIcon icon={ faTrash } />
+                    </button>
                 </>
             )
         }
         return (
             <>
+                <button onClick={() => removeTodo(todo)}>
+                    <FontAwesomeIcon icon={ faTrash } />
+                </button>
             </>
         )
     }

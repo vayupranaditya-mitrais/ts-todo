@@ -56,12 +56,18 @@ function App() {
     setTodos(newTodos);
   }
 
+  const removeTodo: RemoveTodo = (selectedTodo: Todo) => {
+    const newTodos = todos.filter(todo => todo.id !== selectedTodo.id);
+    setTodos(newTodos);
+  }
+
   return (
     <>
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}
         updateTodo={updateTodo}
+        removeTodo={removeTodo}
       />
       <AddTodoForm addTodo={addTodo}/>
     </>
