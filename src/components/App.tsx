@@ -5,13 +5,13 @@ import { TodoList } from './TodoList';
 const initialTodos: Todo[] = [
   {
     id: 1,
-    task: 'Prepare data TA',
-    isCompleted: true
+    task: 'Example task',
+    isCompleted: false
   },
   {
     id: 2,
-    task: 'Nulis laporan',
-    isCompleted: false
+    task: 'Example completed task',
+    isCompleted: true
   }
 ]
 
