@@ -41,11 +41,27 @@ function App() {
     setTodos([...todos, newTodo]);
   }
 
+  const updateTodo: UpdateTodo = (selectedTodo: Todo) => {
+    const newTodos = todos.map(todo => {
+      if (todo.id === selectedTodo.id) {
+        let x = {
+          ...todo,  // All other attributes
+          task: selectedTodo.task,
+        };
+        return x;
+      }
+      return todo;
+    });
+
+    setTodos(newTodos);
+  }
+
   return (
     <>
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}
+        updateTodo={updateTodo}
       />
       <AddTodoForm addTodo={addTodo}/>
     </>
