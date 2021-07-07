@@ -33,6 +33,10 @@ function App() {
   }
 
   const addTodo: AddTodo = (taskId: number, task: string) => {
+    if (task.length === 0) {
+      window.alert('Task cannot be empty');
+      return;
+    }
     const newTodo = {
       id: taskId,
       task,
