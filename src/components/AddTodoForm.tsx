@@ -21,7 +21,8 @@ export const AddTodoForm: React.FC<Props> = ({ addTodo }) => {
                 type="submit"
                 onClick={(elem) => {
                     elem.preventDefault();
-                    addTodo(task);
+                    let taskId: number = new Date().getTime();
+                    addTodo(taskId, task);
                     setTask('');
                 }}
             >

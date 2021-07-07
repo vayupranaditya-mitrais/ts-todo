@@ -4,10 +4,12 @@ import { TodoList } from './TodoList';
 
 const initialTodos: Todo[] = [
   {
+    id: 1,
     task: 'Prepare data TA',
     isCompleted: true
   },
   {
+    id: 2,
     task: 'Nulis laporan',
     isCompleted: false
   }
@@ -18,7 +20,7 @@ function App() {
 
   const toggleTodo: ToggleTodo = (selectedTodo: Todo) => {
     const newTodos = todos.map(todo => {
-      if (todo === selectedTodo) {
+      if (todo.id === selectedTodo.id) {
         return {
           ...todo,  // All other attributes
           isCompleted: !todo.isCompleted
@@ -30,8 +32,12 @@ function App() {
     setTodos(newTodos);
   }
 
-  const addTodo: AddTodo = (task: string) => {
-    const newTodo = { task, isCompleted: false };
+  const addTodo: AddTodo = (taskId: number, task: string) => {
+    const newTodo = {
+      id: taskId,
+      task,
+      isCompleted: false
+    };
     setTodos([...todos, newTodo]);
   }
 
