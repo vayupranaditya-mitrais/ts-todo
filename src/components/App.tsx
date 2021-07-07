@@ -61,6 +61,14 @@ function App() {
     setTodos(newTodos);
   }
 
+  const checkAll: Toggle = () => {
+    const newTodos = todos.map(todo => {
+      todo.isCompleted = true;
+      return todo;
+    })
+    setTodos(newTodos);
+  }
+
   return (
     <>
       <TodoList
@@ -68,6 +76,7 @@ function App() {
         toggleTodo={toggleTodo}
         updateTodo={updateTodo}
         removeTodo={removeTodo}
+        checkAll={checkAll}
       />
       <AddTodoForm addTodo={addTodo}/>
     </>
